@@ -1,12 +1,12 @@
 import React from "react";
-import { Badge, Box, IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import {
   PersonOutline,
-  ShoppingBagOutlined,
   MenuOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
 import { shades } from "../../theme";
+import CartWidget from "./CartWidget";
 
 const Navbar = () => {
   return (
@@ -49,24 +49,10 @@ const Navbar = () => {
           <IconButton sx={{ color: "black" }}>
             <PersonOutline />
           </IconButton>
-
-          <Badge
-            color="secondary"
-            sx={{
-              "& .MuiBadge-badge": {
-                right: 5,
-                top: 5,
-                padding: "0 4px",
-                height: "14px",
-                minWidth: "13px",
-              },
-            }}
-          >
-            <IconButton onClick={() => {}} sx={{ color: "black" }}>
-              <ShoppingBagOutlined />
-            </IconButton>
-          </Badge>
           
+          {/* Componente icono cart */}
+          <CartWidget />  
+
           <IconButton sx={{ color: "black" }}>
             <MenuOutlined />
           </IconButton>
