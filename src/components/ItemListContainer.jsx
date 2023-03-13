@@ -1,11 +1,16 @@
 import React from 'react'
+import ItemCount from './ItemCount'
+import {Box} from '@mui/material';
 
 const ItemListContainer = ({greeting}) => {
   return (
-    <div>
+    <Box
+      padding='300px 200px'
+    >
       <h2>ItemListContainer</h2>
       <h3>{greeting}</h3>
-    </div>
+      <ItemCount stock={5} initial={1}/>
+    </Box>
   )
 }
 
