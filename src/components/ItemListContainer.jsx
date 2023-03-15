@@ -1,17 +1,26 @@
-import React from 'react'
-import ItemCount from './ItemCount'
-import {Box} from '@mui/material';
+import React, { useEffect, useState } from "react";
+// import ItemCount from "./ItemCount";
+import { Box } from "@mui/material";
+import ItemList from "./ItemList";
+import getProducts from "../services/handlePromise";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getProducts
+      .then((res) => {
+        setProducts(res);
+      })
+      .catch((err) => alert("Hay un problema...", err));
+  }, []);
+
   return (
-    <Box
-      padding='300px 200px'
-    >
-      <h2>ItemListContainer</h2>
-      <h3>{greeting}</h3>
-      <ItemCount stock={5} initial={1}/>
+    <Box padding="200px 200px">
+      {/* <ItemCount stock={5} initial={1}/> */}
+      <ItemList products={products} />
     </Box>
-  )
-}
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;
