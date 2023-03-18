@@ -1,12 +1,13 @@
-import {Navbar, ItemListContainer, Hero} from './components'
+import {Navbar, Hero, ItemListContainer, ItemDetailContainer, Footer} from './components'
 
 function App() {
-
   return (
     <>
       <Navbar />
       <Hero />
-      <ItemListContainer greeting={'Catálogo de productos. Próximamente...'}/>
+      <ItemListContainer />
+      <ItemDetailContainer />
+      <Footer />
     </>
   )
 }
