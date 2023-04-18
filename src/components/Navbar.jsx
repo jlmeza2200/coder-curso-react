@@ -7,8 +7,10 @@ import {
 } from "@mui/icons-material";
 import { shades } from "../../theme";
 import CartWidget from "./CartWidget";
+import {useNavigate} from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <Box
       display="flex"
@@ -30,7 +32,7 @@ const Navbar = () => {
         alignItems="center"
       >
         <Box
-          onClick={() => {}}
+          onClick={() => navigate("/")}
           sx={{ "&:hover": { cursor: "pointer" } }}
           color={shades.secondary[500]}
         >

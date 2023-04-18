@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Typography, useMediaQuery} from '@mui/material';
-import {image1 as heroImage} from '../assets';
+import {image1 as heroImage} from '../../public/assets';
 import {shades} from '../../theme';
 
 const Hero = () => {
