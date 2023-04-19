@@ -7,26 +7,29 @@ import { shades } from "../../theme";
 import { useParams } from "react-router-dom";
 import getProducts from "../services/handlePromise";
 // Toast
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+//React Router
+import { Link } from "react-router-dom";
+import Cart from "../pages/Cart";
 
 const ItemDetail = () => {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(1);
 
   const addCountHandler = () => {
-		setCount(count + 1);
-	}
+    setCount(count + 1);
+  };
 
-	const DecCountHandler = () => {
-		count > 1 && setCount(count - 1);
-	}
+  const DecCountHandler = () => {
+    count > 1 && setCount(count - 1);
+  };
 
   const showAddedItem = () => {
-    count > 1 ? toast(`Se agregaron ${count} productos al carrito`) : toast(`Se agregó ${count} producto al carrito`);
-  }
+    count > 1
+      ? toast(`Se agregaron ${count} productos al carrito`)
+      : toast(`Se agregó ${count} producto al carrito`);
+  };
 
   useEffect(() => {
     getProducts
@@ -76,24 +79,47 @@ const ItemDetail = () => {
                 <RemoveIcon />
               </IconButton>
               <Typography sx={{ p: "0 5px" }}>{count}</Typography>
-              
+
               <IconButton onClick={addCountHandler}>
                 <AddIcon />
               </IconButton>
             </Box>
-            <Button
+            <Box
               sx={{
-                backgroundColor: "#222222",
-                color: "white",
-                borderRadius: 0,
-                minWidth: "150px",
-                padding: "10px 40px",
+                display: "flex",
+                alignItems: "center",
+                alignContent: "center",
+                gap: "1rem",
               }}
-              onClick={showAddedItem}
             >
-              <ToastContainer />
-              ADD TO CART
-            </Button>
+              <Button
+                sx={{
+                  backgroundColor: "#222222",
+                  color: "white",
+                  borderRadius: 0,
+                  minWidth: "150px",
+                  padding: "10px 40px",
+                }}
+                onClick={showAddedItem}
+              >
+                <ToastContainer />
+                ADD TO CART
+              </Button>
+
+              <Link to='/cart'>
+                <Button
+                  sx={{
+                    backgroundColor: "#222222",
+                    color: "white",
+                    borderRadius: 0,
+                    minWidth: "150px",
+                    padding: "10px 40px",
+                  }}
+                >
+                  BUY NOW
+                </Button>
+              </Link>
+            </Box>
           </Box>
           <Box>
             <Box m="20px 0 5px 0" display="flex">
